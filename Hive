@@ -1,0 +1,28 @@
+CREATE DATABASE salesdb;
+
+USE salesdb;
+
+CREATE TABLE sales (
+    id INT,
+    product STRING,
+    sales INT,
+    price INT
+);
+
+INSERT INTO sales VALUES
+(1,'Laptop',120,70000),
+(2,'Phone',250,30000),
+(3,'Tablet',150,25000),
+(4,'Watch',180,15000),
+(5,'Headphones',220,5000);
+
+SELECT * FROM sales;
+
+SELECT
+    COUNT(*) AS count,
+    SUM(sales) AS total,
+    AVG(sales) AS average,
+    MIN(sales) AS minimum,
+    MAX(sales) AS maximum
+FROM sales;
+
