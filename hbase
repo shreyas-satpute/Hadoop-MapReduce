@@ -1,0 +1,54 @@
+create 'student', 'info'
+
+list
+
+describe 'student'
+
+exists 'student'
+
+is_enabled 'student'
+
+disable 'student'
+
+is_disabled 'student'
+
+enable 'student'
+
+is_enabled 'student'
+
+alter 'student', {NAME => 'info', VERSIONS => 3}
+
+put 'student', '1', 'info:name', 'Shreyas'
+put 'student', '1', 'info:age', '20'
+put 'student', '1', 'info:branch', 'Computer'
+
+put 'student', '2', 'info:name', 'Rahul'
+put 'student', '2', 'info:age', '21'
+put 'student', '2', 'info:branch', 'IT'
+
+get 'student', '1'
+
+get 'student', '1', 'info:name'
+
+scan 'student'
+
+count 'student'
+
+delete 'student', '1', 'info:age'
+
+deleteall 'student', '2'
+
+scan 'student'
+
+truncate 'student'
+
+exists 'student'
+
+disable 'student'
+
+drop 'student'
+
+exists 'student'
+
+
+  
