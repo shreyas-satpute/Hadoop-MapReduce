@@ -1,0 +1,13 @@
+import hashlib
+
+def fm(stream):
+    m = 0
+    for x in set(stream):
+        h = bin(int(hashlib.md5(x.encode()).hexdigest(), 16))[2:].zfill(128)
+        r = len(h) - len(h.rstrip('0'))
+        m = max(m, r)
+    return 2 ** m
+
+s = input("Enter elements: ").split()
+print("Estimated distinct elements:", fm(s))
+
