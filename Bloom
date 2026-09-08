@@ -1,0 +1,30 @@
+class BloomFilter:
+    def __init__(self, size=20):
+        self.size = size
+        self.bit_array = [0] * size
+
+    def hash1(self, item):
+        return hash(item) % self.size
+
+    def hash2(self, item):
+        return (hash(item) * 31 + 7) % self.size
+
+    def add(self, item):
+        self.bit_array[self.hash1(item)] = 1
+        self.bit_array[self.hash2(item)] = 1
+
+    def check(self, item):
+        return (self.bit_array[self.hash1(item)] == 1 and
+                self.bit_array[self.hash2(item)] == 1)
+
+
+bf = BloomFilter()
+
+bf.add("apple")
+bf.add("banana")
+bf.add("mango")
+
+print("apple:", bf.check("apple"))
+print("banana:", bf.check("banana"))
+print("orange:", bf.check("orange"))
+
