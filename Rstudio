@@ -1,0 +1,29 @@
+library(ggplot2)
+
+# Dataset
+data <- data.frame(
+  Product = c("Laptop", "Phone", "Tablet", "Watch", "Headphones"),
+  Sales = c(120, 250, 150, 180, 220),
+  Price = c(70000, 30000, 25000, 15000, 5000)
+)
+
+# Analytics
+cat("Count =", nrow(data), "\n")
+cat("Sum =", sum(data$Sales), "\n")
+cat("Average =", mean(data$Sales), "\n")
+cat("Minimum =", min(data$Sales), "\n")
+cat("Maximum =", max(data$Sales), "\n")
+
+# Pie Chart
+pie(data$Sales,
+    labels = data$Product,
+    main = "Product Sales")
+
+# Scatter Plot
+ggplot(data, aes(x = Price, y = Sales)) +
+  geom_point(size = 3) +
+  ggtitle("Price vs Sales") +
+  xlab("Price") +
+  ylab("Sales")
+
+visualization
